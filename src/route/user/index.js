@@ -5,8 +5,6 @@ const userRouter = new Router({ prefix: "/users" });
 userRouter.get("/login", userController.login);
 userRouter.get("/login/:id", userController.getUser);
 
-userRouter.post("/", (ctx, next) => {
-  console.log(ctx.request.body);
-  ctx.body = "post访问成功";
-});
+userRouter.post("/createUser", userController.createUser);
+
 module.exports = userRouter;

@@ -1,8 +1,10 @@
 # Koa-template
 
 <p align="center">
-  <a href="https://github.com/hljinjiang/koa-template"><img src="https://img.shields.io/badge/jinjiang-koa-green.svg" alt="Koa template"></a>
-  <a href="https://github.com//koa-template"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Koa template"></a>
+  <a href="https://github.com/hljinjiang/koa-template"><img src="https://img.shields.io/badge/jinjiang-koa-green.svg" alt="Koa template">
+  </a>
+  <a href="https://github.com//koa-template"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Koa template">
+  </a>
 </p>
 
 > koa-template 是一个 nodeJs 后端接口模版，基于 koa 进行搭建。

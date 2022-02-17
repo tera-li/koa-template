@@ -1,4 +1,19 @@
-## 文件目录
+# Koa-template
+
+<p align="center">
+  <a href="https://github.com/hljinjiang/koa-template"><img src="https://img.shields.io/badge/jinjiang-koa-green.svg" alt="Koa template"></a>
+  <a href="https://github.com//koa-template"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Koa template"></a>
+</p>
+
+> koa-template 是一个 nodeJs 后端接口模版，基于 koa 进行搭建。
+
+## 启动命令
+
+```
+npm run start
+```
+
+## 目录结构
 
 ```
 koa-template
@@ -7,6 +22,7 @@ koa-template
 ├─ README.md
 ├─ src                # 源码
 │  ├─ app             # 入口文件
+│  ├─ db              # 操作数据库
 │  ├─ config          # 全部配置
 │  ├─ controller      # 控制层
 │  ├─ service         # 业务层
@@ -56,8 +72,13 @@ ORM数据库工具：对象关系映射，通过操作对象的方式来操作�
 4.数据表的操作对应对象的方法
 ```
 
-## 启动命令
+## db
 
 ```
-npm run start
+采用mysql数据库，通过sequelize进行连接
+mysql：支持事务
+    1.原子性：一个事务的所有操作，要么全部完成，要么全部不完成。在执行过程中发生错误会被回滚（Rollback）
+    2.一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。
+    2.隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。
+    3.持久性：事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。
 ```

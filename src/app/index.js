@@ -1,6 +1,7 @@
 const Koa = require("koa");
 const KoaBody = require("koa-body");
 const router = require("../route/index");
+require("../db");
 
 const app = new Koa(); // 创建koa应用
 

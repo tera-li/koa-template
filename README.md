@@ -3,8 +3,7 @@
 <p align="center">
   <a href="https://github.com/hljinjiang/koa-template"><img src="https://img.shields.io/badge/jinjiang-koa-green.svg" alt="Koa template">
   </a>
-  <a href="https://github.com//koa-template"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Koa template">
-  </a>
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Koa template">
 </p>
 
 > koa-template 是一个 nodeJs 后端接口模版，基于 koa 进行搭建。
@@ -78,7 +77,10 @@ ORM数据库工具：对象关系映射，通过操作对象的方式来操作�
 
 ```
 采用mysql数据库，通过sequelize进行连接
-mysql：支持事务
+mysql：
+一.数据库引擎
+    1.默认InnoDB引擎
+二.支持事务
     1.原子性：一个事务的所有操作，要么全部完成，要么全部不完成。在执行过程中发生错误会被回滚（Rollback）
     2.一致性：在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。
     2.隔离性：数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。

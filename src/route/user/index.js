@@ -3,6 +3,7 @@ const userController = require("../../controller/user/index");
 const {
   validatorCreateUser,
   encryptPassword,
+  existUserInfo,
   verifyPassword,
 } = require("../../middleware/user");
 
@@ -18,6 +19,7 @@ userRouter.post(
 userRouter.post(
   "/createUser",
   validatorCreateUser,
+  existUserInfo,
   encryptPassword,
   userController.createUser
 );

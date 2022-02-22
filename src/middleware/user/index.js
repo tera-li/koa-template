@@ -21,10 +21,23 @@ module.exports = {
     ctx.request.body.password = hash;
     await next();
   },
+  // 查询用户是否存在
+  existUserInfo: async (ctx, next) => {
+    const { user_name } = ctx.request.body;
+    const res = await getUserInfo(user_name);
+    if (res) {
+      ctx.body = {
+        code: "1",
+        message: "用户名已存在",
+      };
+      return;
+    }
+    await next();
+  },
   // 查询用户名，验证密码是否正确
   verifyPassword: async (ctx, next) => {
     const { user_name, password } = ctx.request.body;
-    const res = await getUserInfo(user_name, password);
+    const res = await getUserInfo(user_name);
     if (!res) {
       ctx.body = {
         code: "1",

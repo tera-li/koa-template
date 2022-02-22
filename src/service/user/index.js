@@ -7,14 +7,10 @@ class UserService {
     });
     return res;
   }
-  async getUserInfo(user_name, password) {
+  async getUserInfo(user_name) {
     const res = await User.findOne({
       where: { user_name },
     });
-    return res;
-  }
-  async loginUser(user_name, password) {
-    // todo 写入数据库
     return res;
   }
 }

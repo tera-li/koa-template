@@ -1,12 +1,11 @@
-const { createUser } = require("../../service/user/index");
+const { createUser, loginUser } = require("../../service/user/index");
 class UserController {
   async login(ctx, next) {
-    console.log(ctx.request.params);
-    ctx.body = "登陆成功";
+    const { user_name, password } = ctx.request.body;
+    // const res = await loginUser(user_name, password);
+    ctx.body = `${user_name}登陆成功`;
   }
-  async getUser(ctx, next) {
-    console.log(ctx.request.params);
-    console.log(ctx.request.query);
+  async getUserInfo(ctx, next) {
     ctx.body = "查询成功";
   }
   async createUser(ctx, next) {

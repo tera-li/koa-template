@@ -10,8 +10,8 @@ class UserController {
     ctx.body = "查询成功";
   }
   async createUser(ctx, next) {
-    const { name, password } = ctx.request.body;
-    const result = await createUser(name, password);
+    const { user_name, password } = ctx.request.body;
+    const result = await createUser(user_name, password);
     ctx.body = result;
   }
 }

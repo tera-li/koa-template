@@ -37,7 +37,8 @@ const User = db.define(
     timestamps: true,
     createdAt: true,
     // 修改名称
-    updatedAt: "updateTime",
+    // updatedAt: "updateTime",
+    updatedAt: true,
   }
 );
 // 同步，强制

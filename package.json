@@ -1,16 +1,17 @@
 {
   "name": "koa-test",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "koa-template",
+  "main": "src/main.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "jinjiang",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",

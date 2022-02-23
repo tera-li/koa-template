@@ -45,6 +45,8 @@ module.exports = {
       };
       return;
     }
+    // 注入用户信息
+    ctx.provide = res;
     const verify = bcrypt.compareSync(password, res.dataValues.password); // true
     if (!verify) {
       ctx.body = {

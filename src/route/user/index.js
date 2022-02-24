@@ -14,6 +14,7 @@ const userRouter = new Router({ prefix: "/users" });
 userRouter.post(
   "/login",
   validatorUserAndPassword,
+  existUserInfo,
   verifyPassword,
   authEncrypt,
   userController.login
@@ -32,6 +33,7 @@ userRouter.post(
 userRouter.post(
   "/edit-password",
   validatorUserAndPassword,
+  existUserInfo,
   verifyPassword,
   // authDecrypt,
   userController.editPassword

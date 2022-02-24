@@ -7,7 +7,7 @@ module.exports = {
     // 获取用户信息
     const { password, ...info } = ctx.provide.dataValues;
     // 生成token
-    const token = jwt.sign(info, JWT_SECRET, { expiresIn: "30s" });
+    const token = jwt.sign(info, JWT_SECRET, { expiresIn: "1d" });
     ctx.provide.token = token;
     await next();
   },

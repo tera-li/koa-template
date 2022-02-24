@@ -29,7 +29,7 @@ userRouter.post(
   userController.createUser
 );
 
-// 修改密码
+// 修改用户信息
 userRouter.post(
   "/edit-password",
   validatorUserAndPassword,

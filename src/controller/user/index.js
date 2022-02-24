@@ -23,7 +23,7 @@ class UserController {
       data: result,
     };
   }
-  // 修改密码
+  // 修改用户信息
   async editPassword(ctx, next) {
     const { id, user_name, confirmPassword } = ctx.request.body;
     if (!id) {

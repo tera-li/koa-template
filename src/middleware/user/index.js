@@ -25,7 +25,6 @@ module.exports = {
   existUserInfo: async (ctx, next) => {
     const { user_name } = ctx.request.body;
     const res = await getUserInfo(user_name);
-    console.log(ctx.request.url);
     if (res && ctx.request.url === "/users/create-user") {
       ctx.body = {
         code: "1",

@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const { getUserInfo } = require("../../service/user");
 module.exports = {
   // 校验用户名或密码为空
-  validatorCreateUser: async (ctx, next) => {
+  validatorUserAndPassword: async (ctx, next) => {
     const { user_name, password } = ctx.request.body;
     if (!user_name || !password) {
       ctx.body = {

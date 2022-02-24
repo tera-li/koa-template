@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../../config");
 
 module.exports = {
+  // 生成token
   authEncrypt: async (ctx, next) => {
     // 获取用户信息
     const { password, ...info } = ctx.provide.dataValues;
@@ -10,6 +11,7 @@ module.exports = {
     ctx.provide.token = token;
     await next();
   },
+  // 解密token
   authDecrypt: async (ctx, next) => {
     try {
       // 获取用户信息

@@ -33,7 +33,7 @@ userRouter.post(
   "/edit-password",
   validatorUserAndPassword,
   verifyPassword,
-  authDecrypt,
+  // authDecrypt,
   userController.editPassword
 );
 

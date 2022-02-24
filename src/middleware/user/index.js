@@ -1,5 +1,6 @@
-const bcrypt = require("bcryptjs");
 const { getUserInfo } = require("../../service/user");
+const { encrypt, decrypt } = require("../../units");
+
 module.exports = {
   // 校验用户名或密码为空
   validatorUserAndPassword: async (ctx, next) => {
@@ -16,8 +17,7 @@ module.exports = {
   // 对密码进行加密存储
   encryptPassword: async (ctx, next) => {
     const { password } = ctx.request.body;
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
+    const hash = encrypt(password);
     ctx.request.body.password = hash;
     await next();
   },
@@ -48,7 +48,7 @@ module.exports = {
   verifyPassword: async (ctx, next) => {
     const { password } = ctx.request.body;
     const res = ctx.provide;
-    const verify = bcrypt.compareSync(password, res.password); // true
+    const verify = decrypt(password, res.password);
     if (!verify) {
       ctx.body = {
         code: "1",

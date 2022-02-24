@@ -1,5 +1,5 @@
 const { createUser, updateUser } = require("../../service/user/index");
-const bcrypt = require("bcryptjs");
+const { encrypt } = require("../../units");
 
 class UserController {
   // 登陆
@@ -35,10 +35,8 @@ class UserController {
       return;
     }
 
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(confirmPassword, salt);
-
-    const res = await updateUser({ id, user_name, hash });
+    const password = encrypt(confirmPassword);
+    await updateUser({ id, user_name, password });
 
     ctx.body = {
       code: "0",

@@ -13,7 +13,7 @@ class UserService {
     });
     return res;
   }
-  async updateUser({ id, user_name, hash: password }) {
+  async updateUser({ id, user_name, password }) {
     const res = await User.update(
       { user_name, password },
       {

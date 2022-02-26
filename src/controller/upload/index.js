@@ -1,11 +1,7 @@
 class UploadController {
   // 登陆
   async upload(ctx, next) {
-    ctx.body = {
-      code: "0",
-      message: "文件上传成功",
-      data: null,
-    };
+    return ctx.app.emit("ok", { message: "文件上传成功", ctx });
   }
 }
 

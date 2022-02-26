@@ -6,11 +6,7 @@ module.exports = {
   validatorUserAndPassword: async (ctx, next) => {
     const { user_name, password } = ctx.request.body;
     if (!user_name || !password) {
-      ctx.body = {
-        code: "1",
-        message: "用户名或密码为空",
-      };
-      return;
+      return ctx.app.emit("err", { message: "用户名或密码为空", ctx });
     }
     await next();
   },
@@ -26,18 +22,10 @@ module.exports = {
     const { user_name } = ctx.request.body;
     const res = await getUserInfo(user_name);
     if (res && ctx.request.url === "/users/create-user") {
-      ctx.body = {
-        code: "1",
-        message: "用户名已存在",
-      };
-      return;
+      return ctx.app.emit("err", { message: "用户名已存在", ctx });
     }
     if (!res && ctx.request.url !== "/users/create-user") {
-      ctx.body = {
-        code: "1",
-        message: "用户名不存在",
-      };
-      return;
+      return ctx.app.emit("err", { message: "用户名不存在", ctx });
     }
     // 注入用户信息
     ctx.provide = res;
@@ -49,11 +37,7 @@ module.exports = {
     const res = ctx.provide;
     const verify = decrypt(password, res.password);
     if (!verify) {
-      ctx.body = {
-        code: "1",
-        message: "密码错误",
-      };
-      return;
+      return ctx.app.emit("err", { message: "密码错误", ctx });
     }
     await next();
   },

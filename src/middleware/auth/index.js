@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const app = require("../../app");
 const { JWT_SECRET } = require("../../config");
 
 module.exports = {
@@ -20,13 +21,7 @@ module.exports = {
       const token = authorization.replace("Bearer ", "");
       const user = jwt.verify(token, JWT_SECRET);
     } catch (error) {
-      console.log(error);
-      // if (error.name === '')
-      ctx.body = {
-        code: "1",
-        message: "token验证失败",
-      };
-      return;
+      return ctx.app.emit("err", { message: "token验证失败", ctx });
     }
     await next();
   },

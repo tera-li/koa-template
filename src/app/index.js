@@ -4,6 +4,7 @@ const path = require("path");
 const jwt = require("koa-jwt");
 const router = require("../route/index");
 const { JWT_SECRET } = require("../config");
+const { handleResult } = require("./result");
 require("../db");
 
 const app = new Koa(); // 创建koa应用
@@ -39,4 +40,12 @@ app.use(
     },
   })
 );
+
+// 错误处理
+app.on("err", (val) => {
+  handleResult({ ...val, code: "1" });
+});
+app.on("ok", (val) => {
+  handleResult({ ...val, code: "0" });
+});
 module.exports = app;

@@ -6,10 +6,11 @@ module.exports = {
   // 生成token
   authEncrypt: async (ctx, next) => {
     // 获取用户信息
-    const { password, ...info } = ctx.provide.dataValues;
+    const { password, ...info } = ctx.state.user.dataValues;
     // 生成token
+    console.log(info);
     const token = jwt.sign(info, JWT_SECRET, { expiresIn: "1d" });
-    ctx.provide.token = token;
+    ctx.state.token = token;
     await next();
   },
   // 解密token

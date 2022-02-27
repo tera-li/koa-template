@@ -6,7 +6,7 @@ class UserController {
   async login(ctx, next) {
     const { user_name } = ctx.request.body;
     // 获取用户信息token
-    const { token } = ctx.provide;
+    const token = ctx.state.token;
     return ctx.app.emit("ok", {
       message: "登陆成功",
       data: { token },

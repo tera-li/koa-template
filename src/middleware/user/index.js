@@ -28,13 +28,13 @@ module.exports = {
       return ctx.app.emit("err", { message: "用户名不存在", ctx });
     }
     // 注入用户信息
-    ctx.provide = res;
+    ctx.state.user = res;
     await next();
   },
   // 查询用户名，验证密码是否正确
   verifyPassword: async (ctx, next) => {
     const { password } = ctx.request.body;
-    const res = ctx.provide;
+    const res = ctx.state.user;
     const verify = decrypt(password, res.password);
     if (!verify) {
       return ctx.app.emit("err", { message: "密码错误", ctx });

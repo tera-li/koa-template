@@ -41,10 +41,11 @@ app.use(
   })
 );
 
-// 错误处理
+// 错误，返回错误信息
 app.on("err", (val) => {
   handleResult({ ...val, code: "1" });
 });
+// 成功，返回数据
 app.on("ok", (val) => {
   handleResult({ ...val, code: "0" });
 });

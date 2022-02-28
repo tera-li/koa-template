@@ -11,7 +11,6 @@ router.post("/", (ctx, next) => {
   ctx.body = "post访问成功";
 });
 fs.readdirSync(__dirname).forEach((file) => {
-  console.log(file);
   if (file !== "index.js") {
     let r = require("./" + file);
     router.use(r.routes());
